@@ -1,5 +1,11 @@
 package io.github.liaerisson;
 
+
+import io.github.liaerisson.document.Document;
+import io.github.liaerisson.document.DocumentLoader;
+
+import java.util.ArrayList;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -12,6 +18,13 @@ public class Main {
             //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
+        }
+
+        DocumentLoader loader = new DocumentLoader();
+        ArrayList<Document> documents = loader.fileLoader();
+        for(Document doc: documents) {
+            System.out.println(doc.getTitle());
+            System.out.println(doc.getId());
         }
     }
 }
