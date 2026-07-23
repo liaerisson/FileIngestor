@@ -1,0 +1,6 @@
+concat --> strings are immutable so concat can't be called on the string, but rather the new value is assigned to the string
+  * String a = "value";
+  * a = a.concat(" new value");
+  results in:
+  * System.out.println(a) = value new value
+StringBuilder --> great substitute for concat, it functions smoother and has an easier way to add new lines (content.append(System.lineSeparator()))

@@ -41,14 +41,15 @@ public class DocumentLoader {
 
     public Document makeDocument(Path filePath, int id) {
         String fileName = filePath.getFileName().toString(); //Get name
-        String content = "";
+        StringBuilder content = new StringBuilder();
 
         try(BufferedReader reader = Files.newBufferedReader(filePath)) {
             //System.out.println("This file exists!"); -- Used this to test it works :)
             String line;
 
             while ((line = reader.readLine()) != null) { // This check exists to ensure the reader stops at the end of the file
-                content = content.concat(line);
+                content.append(line);
+                content.append(System.lineSeparator()); //line split
             }
 
         } catch (FileNotFoundException e) {
@@ -57,7 +58,7 @@ public class DocumentLoader {
             System.out.println("Something went wrong");
         }
 
-        Document doc = new Document(id, fileName, filePath, content);
+        Document doc = new Document(id, fileName, filePath, content.toString());
         return doc;
     }
 
