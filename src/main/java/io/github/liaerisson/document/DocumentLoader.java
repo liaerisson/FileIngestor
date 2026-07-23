@@ -48,7 +48,7 @@ public class DocumentLoader {
             String line;
 
             while ((line = reader.readLine()) != null) { // This check exists to ensure the reader stops at the end of the file
-                content.concat(" " + line);
+                content = content.concat(line);
             }
 
         } catch (FileNotFoundException e) {

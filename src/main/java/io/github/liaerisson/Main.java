@@ -20,11 +20,20 @@ public class Main {
             System.out.println("i = " + i);
         }
 
+        //realizing that concat doesn't change strings (which are immutable)
+        String s = "Strings are immutable ";
+        s.concat("hello");
+        System.out.println(s);
+
+        String t = "Strings are immutable ";
+        t = t.concat("hello");
+        System.out.println(t);
+
         DocumentLoader loader = new DocumentLoader();
         ArrayList<Document> documents = loader.fileLoader();
         for(Document doc: documents) {
             System.out.println(doc.getTitle());
-            System.out.println(doc.getId());
+            System.out.println(doc.getContent());
         }
     }
 }
