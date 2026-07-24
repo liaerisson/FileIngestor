@@ -4,3 +4,21 @@ concat --> strings are immutable so concat can't be called on the string, but ra
   results in:
   * System.out.println(a) = value new value
 StringBuilder --> great substitute for concat, it functions smoother and has an easier way to add new lines (content.append(System.lineSeparator()))
+
+https://www.youtube.com/watch?v=kXcc6AI_8-Q --> tokenization guide
+https://www.youtube.com/watch?v=MH384SzszLE --> StringTokenizer
+toLowerCase, split (and delimiters), replaceAll
+
+//realizing that concat doesn't change strings (which are immutable)
+        String s = "Strings are immutable ";
+        s.concat("hello");
+        System.out.println(s);
+
+        String t = "Strings are immutable ";
+        t = t.concat("hello");
+        System.out.println(t);
+
+The tokenizer is done, but I think I should go back and add more cases later
+  * when there is a dash connecting a phrase --> the phrase and 2 words? how about split words?
+  * remove some basic words (the, and, etc...)
+  * if something ends with a space, does that cause
