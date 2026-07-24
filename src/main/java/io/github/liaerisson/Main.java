@@ -20,14 +20,17 @@ public class Main {
             System.out.println("i = " + i);
         }
 
-        //realizing that concat doesn't change strings (which are immutable)
-        String s = "Strings are immutable ";
-        s.concat("hello");
-        System.out.println(s);
 
-        String t = "Strings are immutable ";
-        t = t.concat("hello");
-        System.out.println(t);
+        String practice = "A practice string to tokenize!";
+        //requires a delimiter --> where to split the string up (every space)
+        String delimiter = " ";
+
+        String[] words = practice.split(delimiter); //split is a Java library method
+        System.out.println(practice);
+
+        for(int i = 0; i < words.length; i++) {
+            System.out.println(words[i]);
+        }
 
         DocumentLoader loader = new DocumentLoader();
         ArrayList<Document> documents = loader.fileLoader();
