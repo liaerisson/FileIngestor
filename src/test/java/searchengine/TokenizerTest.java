@@ -27,12 +27,20 @@ public class TokenizerTest {
         assertArrayEquals(new String[]{"hello", "world", "break", "test"}, result);
     }
 
-    /* Future test, ideally
     @Test
-    void splitsDashedWords() {
-        String[] result = tokenizer.tokenize("hello-world! hello—world! hello–world!");
+    void handlesConnectedWords() {
+        String[] result = Tokenizer.tokenize("hello...world!");
 
         assertArrayEquals(new String[]{"hello", "world"}, result);
     }
-     */
+
+/*
+    @Test
+    void splitsDashedWords() {
+        String[] result = Tokenizer.tokenize("hello-world! hello—world! hello–world!");
+
+        assertArrayEquals(new String[]{"hello", "world"}, result);
+    }
+
+ */
 }

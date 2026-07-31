@@ -9,7 +9,7 @@ public class Tokenizer {
 
         content = content
                 .toLowerCase()
-                .replaceAll("[^a-z0-9\\s]", "")
+                .replaceAll("[^a-z0-9\\s]", " ")
                 .trim(); //for the spaces-first edge case
 
         if(content.isEmpty()) {
