@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class InvertedIndex {
-    private HashMap<String, ArrayList<Integer>> terms;
+    private HashMap<String, HashMap<Integer, Integer>> terms;
     private HashMap<Integer, Document> documentsById;
 
     public InvertedIndex() {
@@ -13,15 +13,15 @@ public class InvertedIndex {
         documentsById = new HashMap<>(); //ID for each document
     }
 
-    public void setDocumentsById(ArrayList<Document> documents) {
-        for(Document document: documents) {
-            documentsById.put(document.getId(), document);
+    public void addDocument(Document document) {
+        int id = document.getId();
+        if(documentsById.containsKey(id)) {
+            return;
         }
     }
 
-    public void setTerms(ArrayList<Document> documents) {
-        for(Document document : documents) {
-            //need to refer to one class' method in another class
-        }
+    public ArrayList<Integer> search(String word) {
+
     }
+
 }
