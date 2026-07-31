@@ -17,8 +17,8 @@ public class InvertedIndex {
 
     public void addDocument(Document document) {
         int id = document.getId();
-        if(documentsById.containsKey(id)) {
-            return;
+        if(containsDocument(id)) {
+            throw new IllegalArgumentException("Document is already indexed.");
         }
 
         documentsById.put(id, document);
