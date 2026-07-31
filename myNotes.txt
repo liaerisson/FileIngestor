@@ -26,4 +26,9 @@ The tokenizer is done, but I think I should go back and add more cases later
 Inverted Index
   * need to track both the terms and the frequency of those terms in each document
 
-I need to decide which classes should be static since there isn't really a need for instances of DocumentLoaders or InvertedIndexes.
+I need to decide which methods should be static since there isn't really a need for instances of DocumentLoaders or InvertedIndexes.
+  * made tokenize static
+
+In QueryProcessor, I need to sort the frequencies of the selected word in each document.
+  * as such, I need a sorting method with a comparator
+  * this involves Comparator.comparingInt() (Integer being the type compared)
