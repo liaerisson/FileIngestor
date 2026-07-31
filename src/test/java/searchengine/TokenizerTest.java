@@ -16,21 +16,21 @@ public class TokenizerTest {
 
     @Test
     void convertsTextToLowerCase() {
-        String[] result = tokenizer.tokenizeWords("HELLO WORLD");
+        String[] result = tokenizer.tokenize("HELLO WORLD");
 
         assertArrayEquals(new String[]{"hello", "world"}, result);
     }
 
     @Test
     void removesAllSpaces() {
-        String[] result = tokenizer.tokenizeWords("hello      world    !");
+        String[] result = tokenizer.tokenize("hello      world    !");
 
         assertArrayEquals(new String[]{"hello", "world"}, result);
     }
 
     @Test
     void handlesLineChars() {
-        String[] result = tokenizer.tokenizeWords("   hello   world\nbreak\ttest");
+        String[] result = tokenizer.tokenize("   hello   world\nbreak\ttest");
 
         assertArrayEquals(new String[]{"hello", "world", "break", "test"}, result);
     }
@@ -38,7 +38,7 @@ public class TokenizerTest {
     /* Future test, ideally
     @Test
     void splitsDashedWords() {
-        String[] result = tokenizer.tokenizeWords("hello-world! hello—world! hello–world!");
+        String[] result = tokenizer.tokenize("hello-world! hello—world! hello–world!");
 
         assertArrayEquals(new String[]{"hello", "world"}, result);
     }

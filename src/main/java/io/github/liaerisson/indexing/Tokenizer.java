@@ -2,7 +2,7 @@ package io.github.liaerisson.indexing;
 
 public class Tokenizer {
 
-    public String[] tokenizeWords(String content) {
+    public String[] tokenize(String content) {
         if(content == null) {
             return null;
         }

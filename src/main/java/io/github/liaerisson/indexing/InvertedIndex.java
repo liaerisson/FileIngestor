@@ -22,7 +22,7 @@ public class InvertedIndex {
         }
 
         documentsById.put(id, document);
-        String[] words = tokenizer.tokenizeWords(document.getContent());
+        String[] words = tokenizer.tokenize(document.getContent());
 
         for(String word: words) {
             if(!terms.containsKey(word)) {
