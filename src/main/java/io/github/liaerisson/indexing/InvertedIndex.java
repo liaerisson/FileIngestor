@@ -40,8 +40,4 @@ public class InvertedIndex {
         }
     }
 
-    public ArrayList<Integer> search(String word) {
-
-    }
-
 }
