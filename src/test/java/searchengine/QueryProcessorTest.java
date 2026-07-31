@@ -101,4 +101,75 @@ public class QueryProcessorTest {
         assertEquals(1, third.getScore());
     }
 
+    @Test
+    void returnsNoResultWhenNoTermMatches() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("python");
+        assert(results.isEmpty());
+    }
+
+    @Test
+    void returnsMatchesWithPartiallyMatchingQuery() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("java python");
+        SearchResult result = results.get(0);
+
+        assertEquals(2, result.getScore());
+    }
+
+    @Test
+    void handlesQueryNormalizing() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("JAVA!!\n");
+        SearchResult result = results.get(0);
+
+        assertEquals(2, result.getScore());
+    }
+
+    @Test
+    void handlesEmptyQuery() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("");
+        assert(results.isEmpty());
+    }
+
+    @Test
+    void handlesWhiteSpaceQuery() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("   ");
+        assert(results.isEmpty());
+    }
+
+    @Test
+    void handlesRepeatTermsInQuery() {
+        Document document = new Document(1, "Java notes", Path.of("Java-note.txt"), "you need to know java to make a java java based search");
+
+        index.addDocument(document);
+        QueryProcessor processor = new QueryProcessor(index);
+
+        List<SearchResult> results = processor.processQuery("java java");
+        SearchResult result = results.get(0);
+
+        assertEquals(3, result.getScore());
+    }
 }
