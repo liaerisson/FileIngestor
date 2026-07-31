@@ -22,3 +22,8 @@ The tokenizer is done, but I think I should go back and add more cases later
   * when there is a dash connecting a phrase --> the phrase and 2 words? how about split words?
   * remove some basic words (the, and, etc...)
   * if something ends with a space, does that cause
+
+Inverted Index
+  * need to track both the terms and the frequency of those terms in each document
+
+I need to decide which classes should be static since there isn't really a need for instances of DocumentLoaders or InvertedIndexes.
