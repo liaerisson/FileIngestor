@@ -22,7 +22,7 @@ public class QueryProcessor {
         }
 
         Map<Integer, Integer> scoreByDocument = new HashMap<>();
-        for(String term : queryTerms) {
+        for(String term : uniqueTerms) {
             processTerm(term, scoreByDocument);
         }
 
@@ -40,10 +40,10 @@ public class QueryProcessor {
     }
 
 
-    public void processTerm(String term, Map<Integer, Integer> scoreByDocument) {
+    private void processTerm(String term, Map<Integer, Integer> scoreByDocument) {
         Map<Integer, Integer> frequencies = index.getTermCounts(term);
 
-        for(Map.Entry<Integer, Integer> entry = frequencies.entrySet()) {
+        for(Map.Entry<Integer, Integer> entry : frequencies.entrySet()) {
             int docID = entry.getKey();
             int frequency = entry.getValue();
 

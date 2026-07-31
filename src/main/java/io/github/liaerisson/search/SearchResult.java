@@ -14,4 +14,6 @@ public class SearchResult {
     public int getScore() {
         return score;
     }
+
+    public Document getDocument() { return document; }
 }
