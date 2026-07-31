@@ -28,6 +28,13 @@ public class TokenizerTest {
         assertArrayEquals(new String[]{"hello", "world"}, result);
     }
 
+    @Test
+    void handlesLineChars() {
+        String[] result = tokenizer.tokenizeWords("   hello   world\nbreak\ttest");
+
+        assertArrayEquals(new String[]{"hello", "world", "break", "test"}, result);
+    }
+
     /* Future test, ideally
     @Test
     void splitsDashedWords() {
