@@ -40,4 +40,20 @@ public class InvertedIndex {
         }
     }
 
+    public Map<Integer, Integer> getTermCounts(String term) {
+        if(!terms.containsKey(term)) {
+            return Collections.emptyMap();
+        }
+
+        return terms.get(term);
+    }
+
+    public Document getDocument(int docID) {
+        return documentsById.get(docID);
+    }
+
+    public boolean containsDocument(int documentID) {
+        return documentsById.containsKey(documentID);
+    }
+
 }
