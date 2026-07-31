@@ -65,4 +65,43 @@ public class InvertedIndexTest {
         assertEquals(1, count.get(1), "Value for test is wrong");
     }
 
+    @Test
+    void indexesMultipleDocuments() {
+        Document documentTwo = new Document(2, "testTwo.txt", Path.of("testTwo.txt"), "Inverted indexing in java java java test");
+        indexer.addDocument(document);
+        indexer.addDocument(documentTwo);
+        Map<Integer, Integer> count = indexer.getTermCounts("java");
+
+        assertTrue(count.containsKey(1), "First document missing from map");
+        assertEquals(1, count.get(1), "Frequency for document one does not match");
+
+        assertTrue(count.containsKey(2), "Second document from map");
+        assertEquals(3, count.get(2), "Frequency for document two does not match");
+    }
+
+    @Test
+    void handlesMissingTerm() {
+        indexer.addDocument(document);
+        Map<Integer, Integer> count = indexer.getTermCounts("python");
+
+        assertSame(Collections.emptyMap(), count);
+    }
+
+    @Test
+    void handlesDuplicateDocuments() {
+        indexer.addDocument(document);
+        Document documentTwo = new Document(1, "test.txt", Path.of("test.txt"), "Inverted indexing in java test");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+                indexer.addDocument(documentTwo);
+        });
+    }
+
+    @Test
+    void handlesNoContent() {
+        document = new Document(1, "test.txt", Path.of("test.txt"), "");
+        indexer.addDocument(document);
+
+        //need way to get full set of terms
+    }
 }

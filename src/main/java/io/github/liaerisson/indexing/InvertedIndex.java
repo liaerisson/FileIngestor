@@ -1,8 +1,8 @@
 package io.github.liaerisson.indexing;
 
 import io.github.liaerisson.document.Document;
-import java.util.ArrayList;
-import java.util.HashMap;
+
+import java.util.*;
 
 public class InvertedIndex {
     private HashMap<String, HashMap<Integer, Integer>> terms;
