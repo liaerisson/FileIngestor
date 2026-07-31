@@ -7,12 +7,10 @@ import java.util.*;
 public class InvertedIndex {
     private HashMap<String, HashMap<Integer, Integer>> terms;
     private HashMap<Integer, Document> documentsById;
-    private Tokenizer tokenizer;
 
     public InvertedIndex() {
         terms = new HashMap<>(); //word, which document IDs have this word
         documentsById = new HashMap<>(); //ID for each document
-        tokenizer = new Tokenizer();
     }
 
     public void addDocument(Document document) {
@@ -22,7 +20,7 @@ public class InvertedIndex {
         }
 
         documentsById.put(id, document);
-        String[] words = tokenizer.tokenize(document.getContent());
+        String[] words = Tokenizer.tokenize(document.getContent());
 
         for(String word: words) {
             if(!terms.containsKey(word)) {
