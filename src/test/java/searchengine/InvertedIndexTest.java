@@ -99,9 +99,20 @@ public class InvertedIndexTest {
 
     @Test
     void handlesNoContent() {
-        document = new Document(1, "test.txt", Path.of("test.txt"), "");
-        indexer.addDocument(document);
+        Document emptyDoc = new Document(2, "empty.txt", Path.of("empty.txt"), "");
+        indexer.addDocument(emptyDoc);
 
-        //need way to get full set of terms
+        assertTrue(indexer.containsDocument(emptyDoc.getId()));
+        assertEquals(0, indexer.getVocabularySize());
+    }
+
+    @Test
+    void countsNormalizedTerms() {
+        Document javaDoc = new Document(2, "javaDoc.txt", Path.of("java.txt"), "Java, JAVA!\njava");
+        indexer.addDocument(javaDoc);
+        Map<Integer, Integer> count = indexer.getTermCounts("java");
+
+        assertTrue(count.containsKey(2), "Second document from map");
+        assertEquals(3, count.get(2), "Frequency for document two does not match");
     }
 }

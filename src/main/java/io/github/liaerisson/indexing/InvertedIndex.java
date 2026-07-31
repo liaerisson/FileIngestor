@@ -56,4 +56,7 @@ public class InvertedIndex {
         return documentsById.containsKey(documentID);
     }
 
+    public int getVocabularySize() {
+        return terms.size();
+    }
 }
