@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class QueryProcessorTest {
     InvertedIndex index;
@@ -109,7 +110,7 @@ public class QueryProcessorTest {
         QueryProcessor processor = new QueryProcessor(index);
 
         List<SearchResult> results = processor.processQuery("python");
-        assert(results.isEmpty());
+        assertTrue(results.isEmpty());
     }
 
     @Test
@@ -146,7 +147,7 @@ public class QueryProcessorTest {
         QueryProcessor processor = new QueryProcessor(index);
 
         List<SearchResult> results = processor.processQuery("");
-        assert(results.isEmpty());
+        assertTrue(results.isEmpty());
     }
 
     @Test
@@ -157,7 +158,7 @@ public class QueryProcessorTest {
         QueryProcessor processor = new QueryProcessor(index);
 
         List<SearchResult> results = processor.processQuery("   ");
-        assert(results.isEmpty());
+        assertTrue(results.isEmpty());
     }
 
     @Test

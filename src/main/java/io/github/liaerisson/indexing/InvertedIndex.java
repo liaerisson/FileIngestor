@@ -5,8 +5,8 @@ import io.github.liaerisson.document.Document;
 import java.util.*;
 
 public class InvertedIndex {
-    private HashMap<String, HashMap<Integer, Integer>> terms;
-    private HashMap<Integer, Document> documentsById;
+    private final HashMap<String, HashMap<Integer, Integer>> terms;
+    private final HashMap<Integer, Document> documentsById;
 
     public InvertedIndex() {
         terms = new HashMap<>(); //word, which document IDs have this word
@@ -43,7 +43,7 @@ public class InvertedIndex {
             return Collections.emptyMap();
         }
 
-        return terms.get(term);
+        return Collections.unmodifiableMap(terms.get(term));
     }
 
     public Document getDocument(int docID) {

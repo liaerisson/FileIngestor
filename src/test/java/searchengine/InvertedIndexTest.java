@@ -84,7 +84,7 @@ public class InvertedIndexTest {
         indexer.addDocument(document);
         Map<Integer, Integer> count = indexer.getTermCounts("python");
 
-        assertSame(Collections.emptyMap(), count);
+        assertTrue(count.isEmpty());
     }
 
     @Test
