@@ -103,29 +103,98 @@ Testing was a major focus of the project. I used the test suite both to verify i
 
 ### Requirements
 
-* Java Development Kit
-* Maven
+* Java Development Kit 21 or newer
+* Git
 
-### Run tests
+I included the Maven wrapper in the repository, so it does not need to be installed.
+
+### 1. Clone the Repo
 
 ```bash
-mvn test
+git clone https://github.com/liaerisson/JavaIngestor.git
+cd JavaIngestor
 ```
 
-### Run the application
+### 2. Run the tests
 
-Run the `SearchCli` class.
+On Windows PowerShell:
 
-The program will prompt for a directory containing `.txt` files and then accept repeated search queries.
+```powershell
+.\mvnw.cmd clean test
+```
+
+On macOS/Linux:
+
+```bash
+./mvnw clean test
+```
+
+After these run, you see:
 
 ```text
-Directory path: ./documents
-3 documents indexed.
-
-Search: java database
+BUILD SUCCESS
 ```
 
-Enter `exit` to close the program.
+### 3. Build the executable JAR
+
+On Windows PowerShell:
+
+```powershell
+.\mvnw.cmd clean package
+```
+
+On macOS or Linux:
+
+```bash
+./mvnw clean package
+```
+
+This creates:
+
+```text
+target/JavaIngestor-1.0-SNAPSHOT.jar
+```
+
+### 4. Start the search engine
+
+```bash
+java -jar target/JavaIngestor-1.0-SNAPSHOT.jar
+```
+
+The application will prompt you to enter the path to a directory containing `.txt` files:
+
+```text
+==========================
+  Document Search Engine
+==========================
+Enter a folder containing .txt files.
+Type "exit" to stop searching.
+
+Enter a directory path:
+```
+
+After the files are indexed, enter a single- or multi-word search query:
+
+```text
+Search: java indexing
+```
+
+Results are displayed in descending score order:
+
+```text
+2 matching document(s)
+
+1. backend.txt
+   Path: sample-documents/backend.txt
+   Score: 5
+
+2. indexing.txt
+   Path: sample-documents/indexing.txt
+   Score: 2
+```
+
+Enter `exit` at the search prompt to close the application.
+
 
 ## Design Goals
 
