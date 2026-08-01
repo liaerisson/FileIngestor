@@ -32,3 +32,6 @@ I need to decide which methods should be static since there isn't really a need 
 In QueryProcessor, I need to sort the frequencies of the selected word in each document.
   * as such, I need a sorting method with a comparator
   * this involves Comparator.comparingInt() (Integer being the type compared)
+
+SearchResult --> a type of instance with the document and the number of occurrences of the searched words
+SearchEngine --> how all the methods and mechanisms of searching are integrated to an easier interface
