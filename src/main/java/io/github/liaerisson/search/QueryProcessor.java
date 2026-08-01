@@ -56,7 +56,10 @@ public class QueryProcessor {
     }
 
     private void sortResults(List<SearchResult> results) {
-        results.sort(Comparator.comparingInt(SearchResult::getScore).reversed());
+        results.sort(Comparator
+                .comparingInt(SearchResult::getScore).reversed()
+                .thenComparingInt(result -> result.getDocument().getId())
+        );
     }
 
 }
