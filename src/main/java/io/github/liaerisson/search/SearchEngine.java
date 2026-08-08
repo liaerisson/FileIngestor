@@ -2,9 +2,11 @@ package io.github.liaerisson.search;
 
 import io.github.liaerisson.document.Document;
 import io.github.liaerisson.indexing.InvertedIndex;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SearchEngine {
     private final InvertedIndex index;
     private final QueryProcessor queryProcessor;

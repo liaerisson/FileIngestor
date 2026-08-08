@@ -4,6 +4,8 @@ A command-line search engine built from scratch in Java.
 
 The program reads `.txt` files from a user-selected directory, builds an inverted index, and returns ranked results for single- and multi-word queries.
 
+![ingestorimage.png](ingestorimage.png)
+
 I built this project to strengthen my understanding of software design, Java collections, file processing, and unit testing while learning how keyword search works internally.
 
 ## Features

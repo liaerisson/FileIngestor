@@ -1,4 +1,6 @@
 package io.github.liaerisson.document;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+@Component
 public class DocumentLoader {
     public List<Document> loadDocuments(Path directory) {
         ArrayList<Path> files = getFiles(directory);
