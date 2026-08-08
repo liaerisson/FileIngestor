@@ -8,7 +8,6 @@ import io.github.liaerisson.indexing.InvertedIndex;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.nio.file.Path;
-import java.util.Collections;
 import java.util.Map;
 
 public class InvertedIndexTest {

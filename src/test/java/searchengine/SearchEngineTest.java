@@ -1,14 +1,12 @@
 package searchengine;
 
 import io.github.liaerisson.document.Document;
-import io.github.liaerisson.search.QueryProcessor;
 import io.github.liaerisson.search.SearchEngine;
 import io.github.liaerisson.search.SearchResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
