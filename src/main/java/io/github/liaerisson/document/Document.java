@@ -15,6 +15,13 @@ public class Document {
         this.content = content;
     }
 
+    public Document(int id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.filePath = null;
+        this.content = content;
+    }
+
     public int getId() {
         return this.id;
     }
