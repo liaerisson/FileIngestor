@@ -21,7 +21,7 @@ toLowerCase, split (and delimiters), replaceAll
 The tokenizer is done, but I think I should go back and add more cases later
   * when there is a dash connecting a phrase --> the phrase and 2 words? how about split words?
   * remove some basic words (the, and, etc...)
-  * if something ends with a space, does that cause
+  * if something ends with a space, does that cause issues
 
 Inverted Index
   * need to track both the terms and the frequency of those terms in each document
@@ -41,4 +41,13 @@ REST API
   * SpringBoot needs an application class along with a controller class
   * there are labels for the type of purpose of a class (@SpringBootApplication, @RestController, @Component, @Service)
 DTO --> Data Transfer Object
-  *
+  * DocumentRequest functions as a DTO, and the empty constructor allows SpringBoot to use the setters to instantiate a new doc
+  * "magic" process
+
+Bean validation --> a way to check inputs with Spring
+
+Global exception handlers --> improve separation of concerns and clarity of responses
+  * I might do this later, but I don't think I need it
+
+web-layer test --> Spring processes requests and verifies that returned status and fed in input
+  MockMvc is a way to do HTTP-request requiring tests without opening a browser
