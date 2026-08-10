@@ -1,8 +1,15 @@
 package io.github.liaerisson.api.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+
 public class DocumentRequest {
     private int id;
+
+    @NotBlank //no null or ""
     private String title;
+
+    @NotNull //no null only
     private String content;
 
     public DocumentRequest() {}
@@ -27,7 +34,7 @@ public class DocumentRequest {
         return this.content;
     }
 
-    public void setContent() {
+    public void setContent(String content) {
         this.content = content;
     }
 }

@@ -6,7 +6,7 @@ import io.github.liaerisson.search.SearchEngine;
 import io.github.liaerisson.search.SearchResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +25,7 @@ public class SearchController {
 
     @PostMapping("/documents")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addDocument(@RequestBody DocumentRequest request) {
+    public void addDocument(@Valid @RequestBody DocumentRequest request) {
         Document newDoc = new Document(request.getId(), request.getTitle(), request.getContent());
         searchEngine.addDocument(newDoc);
     }
