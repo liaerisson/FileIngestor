@@ -1,7 +1,7 @@
 package io.github.liaerisson.indexing;
 
 import io.github.liaerisson.document.Document;
-import io.github.liaerisson.exception.DocumentExistsException;
+import io.github.liaerisson.exception.DocumentAleadyExistsException;
 
 import java.util.*;
 
@@ -17,7 +17,7 @@ public class InvertedIndex {
     public void addDocument(Document document) {
         int id = document.getId();
         if(containsDocument(id)) {
-            throw new DocumentExistsException(id);
+            throw new DocumentAleadyExistsException(id);
         }
 
         documentsById.put(id, document);

@@ -3,7 +3,7 @@ package searchengine;
 import static org.junit.jupiter.api.Assertions.*;
 
 import io.github.liaerisson.document.Document;
-import io.github.liaerisson.exception.DocumentExistsException;
+import io.github.liaerisson.exception.DocumentAleadyExistsException;
 import org.junit.jupiter.api.Test;
 import io.github.liaerisson.indexing.InvertedIndex;
 import org.junit.jupiter.api.BeforeEach;
@@ -92,7 +92,7 @@ public class InvertedIndexTest {
         indexer.addDocument(document);
         Document documentTwo = new Document(1, "test.txt", Path.of("test.txt"), "Inverted indexing in java test");
 
-        assertThrows(DocumentExistsException.class, () -> {
+        assertThrows(DocumentAleadyExistsException.class, () -> {
                 indexer.addDocument(documentTwo);
         });
     }
