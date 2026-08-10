@@ -35,3 +35,10 @@ In QueryProcessor, I need to sort the frequencies of the selected word in each d
 
 SearchResult --> a type of instance with the document and the number of occurrences of the searched words
 SearchEngine --> how all the methods and mechanisms of searching are integrated to an easier interface
+
+REST API
+  * this bridges a HTTP ability with the program itself, so it can be run from a browser
+  * SpringBoot needs an application class along with a controller class
+  * there are labels for the type of purpose of a class (@SpringBootApplication, @RestController, @Component, @Service)
+DTO --> Data Transfer Object
+  *
